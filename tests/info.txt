@@ -1,0 +1,27 @@
+
+
+# Acceder a un objeto por xpath
+$errorMessage = $this->webDriver->findElement(
+    WebDriverBy::xpath('/html/body/div[3]/div/div[2]/div[1]/div[1]')
+);
+$this->assertContains('incorrectos', $errorMessage->getText());
+
+# Acceder a un objeto por class name
+$errorMessage = $this->webDriver->findElements(
+    WebDriverBy::className('alert-danger')
+);
+$this->assertContains('incorrectos', $errorMessage[0]->getText());
+
+
+# Hacer foco en la pantalla hasta un objeto. Esto es importante, ya que para hacer interactuar con un objeto este tiene ser visible ne pantalla.
+# Por ejemplo, si queremo ir a un enlace del pie de página, primero lo buscaríamos:
+
+$element = $this->webDriver->findElement(
+    WebDriverBy::id('link-in-footer')
+);
+
+# le decimos que haga foco hasta él (vemos como el navegador hace scroll hasta que lo encuentra)
+$element->getLocationOnScreenOnceScrolledIntoView();
+
+# y ya podemos hace click, escribir si es un input, etc...
+$element->click();

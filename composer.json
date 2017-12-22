@@ -1,0 +1,18 @@
+{
+    "name": "root/avaibook",
+    "authors": [
+        {
+            "name": "David Labarta",
+            "email": "labarta.david@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "AvaibookTests\\": "tests/"
+        }
+    },
+    "require": {
+        "phpunit/phpunit": "^5.3.4",
+        "facebook/webdriver": "^1.4"
+    }
+}
